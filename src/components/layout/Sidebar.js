@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Projects } from '../Projects';
 import { FaChevronDown, FaRegCalendar, FaRegCalendarAlt, FaInbox } from 'react-icons/fa';
+import { useSelectedProjectValue } from '../../context';
 
 export const Sidebar = () => {
+  const [showProjects, setShowProjects] = useState(true);
+  const [active, setActive] = useState('inbox');
+  const { selectedProject, setSelectedProject } = useSelectedProjectValue();
+
   return (
     <div className="sidebar" data-testid="sidebar">
       <ul className="sidebar__generic">
@@ -23,7 +29,7 @@ export const Sidebar = () => {
         <h2>Projects</h2>
       </div>
       <ul className="sidebar__projects">Projects will be here</ul>
-      Project Component Here...
+      <Projects />
     </div>
   )
 }
