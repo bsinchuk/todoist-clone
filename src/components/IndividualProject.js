@@ -6,11 +6,11 @@ import { firebase } from '../firebase';
 export const IndividualProject = ({ project }) => {
   const [showConfirm, setShowConfirm] = useState(false);
   const { projects, setProjects } = useProjectsValue();
-  const { selectedProject, setSelectedProject } = useSelectedProjectValue();
+  const { setSelectedProject } = useSelectedProjectValue();
 
   const deleteProject = docId => {
     firebase
-      .firestore
+      .firestore()
       .collection('projects')
       .doc(docId)
       .delete()

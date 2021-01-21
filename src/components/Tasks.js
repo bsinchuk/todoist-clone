@@ -5,7 +5,6 @@ import { useTasks } from '../hooks/index';
 export const Tasks = () => {
   const projectName = '1';
   const { tasks } = useTasks(projectName);
-  console.log(tasks);
 
   return (
     <div className="tasks" data-testid="tasks">
@@ -20,5 +19,4 @@ export const Tasks = () => {
       </ul>
     </div>
   );
-
 }

@@ -5,7 +5,7 @@ import { IndividualProject } from './IndividualProject';
 export const Projects = ({activeValue = null}) => {
   const [active, setActive] = useState(activeValue);
   const { projects } = useProjectsValue();
-  const { selectedProject, setSelectedProject } = useSelectedProjectValue();
+  const { setSelectedProject } = useSelectedProjectValue();
 
   return (
     projects &&
