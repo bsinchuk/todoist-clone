@@ -28,8 +28,10 @@ export const Sidebar = () => {
         <span><FaChevronDown /></span>
         <h2>Projects</h2>
       </div>
-      <ul className="sidebar__projects">Projects will be here</ul>
-      <Projects />
+      <ul className="sidebar__projects">
+        <Projects />
+      </ul>
+
     </div>
   )
 }
