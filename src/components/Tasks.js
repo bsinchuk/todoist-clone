@@ -1,10 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Checkbox } from './Checkbox';
-import { useTasks } from '../hooks/index';
+import { useTasks } from '../hooks';
+import { defaultProjects } from '../constants';
+import { getTitle, getDefaultTitle, isADefaultProject } from '../helpers';
+import { useProjectsValue, useSelectedProjectValue } from '../context';
+
 
 export const Tasks = () => {
-  const projectName = '1';
-  const { tasks } = useTasks(projectName);
+  const { projects } = useProjectsValue();
+  const { selectedProject } = useSelectedProjectValue();
+  const { tasks } = useTasks(selectedProject);
+
+  let projectName = '';
+
+  if (projects && selectedProject && !isADefaultProject(selectedProject)) {
+    projectName = getTitle(projects, selectedProject).name;
+    console.log('projectName 1: ', projectName);
+  }
+
+  if (selectedProject && isADefaultProject(selectedProject)) {
+    projectName = getDefaultTitle(defaultProjects, selectedProject).name;
+    console.log('proejctName 2: ', projectName);
+  }
+
+  useEffect(() => {
+    document.title = `${projectName}: Todoist`;
+  });
 
   return (
     <div className="tasks" data-testid="tasks">

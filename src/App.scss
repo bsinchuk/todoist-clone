@@ -314,6 +314,8 @@ header {
       list-style-type: none;
       color: #333;
       display: flex;
+      padding-top: 5px;
+      padding-bottom: 5px;
       cursor: pointer;
       line-height: 1.50;
       font-size: 15px;
@@ -363,6 +365,70 @@ header {
     span {
       @include cancel();
       font-weight: normal;
+    }
+  }
+}
+
+// Main content
+.content {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr auto;
+  margin: auto;
+  max-width: 922px;
+}
+
+// Tasks
+.tasks {
+  margin-left: 266px;
+  border-right: $generic-border;
+  padding: 80px 40px 84px 40px;
+  width: 656px;
+  min-height: calc(100vh);
+  background-color: white;
+  vertical-align: top;
+
+  @include mq('900px') {
+    margin-left: 0;
+    width: auto;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0 30px 20px 0;
+  }
+
+  .add-task {
+    margin-top: 20px;
+  }
+
+  &__list li {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    line-height: 18px;
+    list-style-type: none;
+
+    .checkbox-holder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 16px;
+      line-height: 16px;
+      
+      .checkbox {
+        display: block;
+        width: 16px;
+        height: 16px;
+        border: 1px solid grey;
+        border-radius: 16px;
+        color: #343434;
+        cursor: pointer;
+      }
     }
   }
 }
