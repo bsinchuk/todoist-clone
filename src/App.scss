@@ -358,7 +358,7 @@ header {
     }
 
     button {
-      @include btn('50px');
+      @include btn(75px);
     }
 
     span {
@@ -429,5 +429,46 @@ header {
         cursor: pointer;
       }
     }
+  }
+}
+
+// Add Project
+.add-project {
+  margin-top: 20px;
+  padding-left: 13px;
+  padding-right: 20px;
+
+  &__input {
+    margin-bottom: 20px;
+  }
+
+  &__name {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    width: 100%;
+    height: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: white !important;
+  }
+
+  &__text {
+    display: inline-block;
+    margin-left: 15px;
+    font-size: 14px;
+    color: #545454;
+  }
+
+  &__plus {
+    color: #dd3b39;
+    font-size: 18px;
+  }
+
+  &__submit {
+    @include btn(100px);
+  }
+
+  &__cancel {
+    @include cancel();
   }
 }
