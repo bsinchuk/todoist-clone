@@ -4,6 +4,7 @@ import { useTasks } from '../hooks';
 import { defaultProjects } from '../constants';
 import { getTitle, getDefaultTitle, isADefaultProject } from '../helpers';
 import { useProjectsValue, useSelectedProjectValue } from '../context';
+import { AddTask } from './AddTask';
 
 
 export const Tasks = () => {
@@ -38,6 +39,7 @@ export const Tasks = () => {
           </li>
         ))}
       </ul>
+      <AddTask />
     </div>
   );
 }
