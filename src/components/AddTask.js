@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { ProjectOverlay } from './ProjectOverlay';
+import { TaskDate } from './TaskDate';
 import { useSelectedProjectValue } from '../context';
 import { FaRegListAlt, FaRegCalendarAlt } from 'react-icons/fa';
 import moment from 'moment';
@@ -85,8 +87,14 @@ export const AddTask = (
                 </div>
               </>
             )}
-            <p>Project Overlay here</p>
-            <p>TaskDate here</p>
+            <ProjectOverlay 
+              setProject={setProject}
+              showProjectOverlay={showProjectOverlay}
+              setShowProjectOverlay={setShowProjectOverlay} />
+            <TaskDate
+              setTaskDate={setTaskDate}
+              showTaskDate={showTaskDate}
+              setShowTaskDate={setShowTaskDate} />
             <input
               className="add-task__content"
               data-testid="add-task-content"
