@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaPizzaSlice } from 'react-icons/fa';
 
-export const Header = () => {
+export const Header = ({ darkmode, setDarkmode }) => {
   return (
     <header className="header" data-testid="header">
       <nav>
@@ -16,7 +16,9 @@ export const Header = () => {
                 +
             </li>
             <li data-testid="dark-mode-action"
-                className="settings__dark-mode">
+                className="settings__dark-mode"
+                onClick={() => setDarkmode(!darkmode)}
+            >
                   <FaPizzaSlice />
             </li>
           </ul>
