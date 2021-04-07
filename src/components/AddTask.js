@@ -6,12 +6,12 @@ import { FaRegListAlt, FaRegCalendarAlt } from 'react-icons/fa';
 import moment from 'moment';
 import { firebase } from '../firebase';
 
-export const AddTask = (
-  shouldAddTaskMain = false,
+export const AddTask = ({
+  showAddTaskMain = true,
   shouldShowMain = false,
   showQuickAddTask,
   setShowQuickAddTask
-) => {
+}) => {
   const [task, setTask] = useState('');
   const [taskDate, setTaskDate] = useState('');
   const [project, setProject] = useState('');
@@ -58,7 +58,7 @@ export const AddTask = (
     <div
       className={showQuickAddTask ? 'add-task add-task__overlay' : 'add-task'}
       data-testid="add-task-comp">
-        {shouldAddTaskMain && (
+        {showAddTaskMain && (
           <div
             className="add-task__shallow"
             data-testid="show-ain-action"
@@ -105,7 +105,12 @@ export const AddTask = (
               type="button"
               className="add-task__submit"
               data-testid="add-task"
-              onClick={() => addTask()}
+              onClick={() => {
+                if (showQuickAddTask) {
+                  setShowQuickAddTask(false);
+                }
+                addTask();
+              }}
             >
               Add Task
             </button>
