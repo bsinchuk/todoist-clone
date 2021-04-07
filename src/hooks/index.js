@@ -36,11 +36,11 @@ export const useTasks = selectedProject => {
         ? newTasks.filter(
           task =>
             moment(task.date, 'DD-MM-YYYY').diff(moment(), 'days') <= 7 &&
-            task.archived !== 'true'
+            task.archived !== true
         )
-        : newTasks.filter(task => task.archived !== 'true')
+        : newTasks.filter(task => task.archived !== true)
       );
-      setArchivedTasks(newTasks.filter(task => task.archived === 'true'));
+      setArchivedTasks(newTasks.filter(task => task.archived === true));
     });
     return () => unsubscribe();
   }, [selectedProject]);
