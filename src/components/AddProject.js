@@ -7,7 +7,7 @@ import { firebase } from '../firebase';
 export const AddProject = ({ shouldShow}) => {
   const [show, setShow] = useState(shouldShow);
 
-  const { setProjects } = useProjectsValue();
+  const { projects, setProjects } = useProjectsValue();
   const [projectName, setProjectName] = useState('');
   const projectId = generatePushId();
 
@@ -21,7 +21,7 @@ export const AddProject = ({ shouldShow}) => {
         userId: 'a1b2c3'
       })
       .then(() => {
-        setProjects([]);
+        setProjects([...projects]);
         setProjectName('');
         setShow(false);
       });

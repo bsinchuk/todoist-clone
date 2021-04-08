@@ -14,14 +14,12 @@ export const Tasks = () => {
 
   let projectName = '';
 
-  if (projects && selectedProject && !isADefaultProject(selectedProject)) {
+  if (projects.length > 0 && selectedProject && !isADefaultProject(selectedProject)) {
     projectName = getTitle(projects, selectedProject).name;
-    console.log('projectName 1: ', projectName);
   }
 
   if (selectedProject && isADefaultProject(selectedProject)) {
     projectName = getDefaultTitle(defaultProjects, selectedProject).name;
-    console.log('proejctName 2: ', projectName);
   }
 
   useEffect(() => {
